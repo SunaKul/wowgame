@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>255 Project Reyhan Suna Kul</title>
+    <script  src="https://kit.fontawesome.com/bf8acc16f4.js"></script>
+    <style> @import url('https://fonts.googleapis.com/css2?family=Quicksand&family=Roboto:wght@100;400;700&family=Source+Code+Pro:ital,wght@0,200;1,200&display=swap'); </style>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="./gameEvent.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <style>  
+   
+#header{
+    border: 2px solid greenyellow;
+    width: 380px;
+    height: 45px;
+    text-align: center;
+    line-height: 45px;
+    margin: auto;
+    background-color: aliceblue;
+    color: blueviolet;
+    opacity: 0.6;
+    font-size: 20px;
+    font-family: Roboto;
+}
+body{user-select: none;}     
+
+#container{
+    background-image: url(./bg-village.webp);
+    width: 450px;
+    height: 900px;
+    margin: auto;
+    text-align: center;
+    font-family: Roboto;
+    font-weight: 700;
+    color: white;
+    border: 5px solid violet;
+}
+
+ #words > #letters{
+    position: absolute;
+    border: 1px solid violet;
+    border-radius: 2px;
+    width: 45px;
+    height: 45px;
+    background-color:white;
+    line-height: 45px;
+    font-size: 25px;
+    opacity: 1;  /*değiştirdim eskisi 0.8di*/
+}
+
+#circle{
+    position: absolute;
+    margin-top: 150px;
+    margin-left: 75px;
+   border: 2px solid violet;
+   width: 300px;
+   height: 300px;
+   border-radius:100px;
+   background-color: white;
+   opacity: 0.99;
+}
+
+.innerC{
+position:absolute;
+    border: 2px solid violet;
+    width: 60px;
+    height: 60px;
+    border-radius: 25px;
+    opacity: 1px;
+    background-color: aliceblue;
+    line-height: 60px;
+    font-size: 40px;
+    color: purple;
+}
+
+#shuffle{
+color: black;
+}
+
+.word { color: white;}
+.shuffle{position: absolute;}
+
+.shuffle,.innerC,.clue:hover {cursor: pointer;}
+.clue{position: absolute;}
+
+.letterContainer{
+    position: absolute;
+    height: 32px;
+    opacity: 10px;
+    border-radius: 5px;
+    background-color:purple;
+    font-size: 35px;
+    text-align: center;
+    margin-left: 110px;
+    color: aliceblue;
+}
+    </style>
+</head>
+
+<script>
+    function bigImg(x) { //To change clue's size when it's hover.
+  x.style.height = "74px";
+  x.style.width = "74px";
+}
+
+function normalImg(x) {
+  x.style.height = "64px";
+  x.style.width = "64px";
+}
+</script>
+
+<body>
+    <div id="container">
+        <br>
+        <div id="header">CTIS 255-Project-Reyhan Suna Kul</div>
+       
+        <div id="words" class="word">
+                <div id="letters" class="b1" style="margin-left: 50px;margin-top:150px; text-align: center; line-height:-9px; "><div class="let">B</div></div>  <!--/*Letter boxes positioning*/ -->
+                <div id="letters" class="o1" style="margin-left: 50px;margin-top:200px;"><div class="let">O</div></div>
+                <div id="letters" class="r1" style="margin-left: 50px;margin-top:250px;"><div class="let">R</div></div>
+                <div id="letters" class="b2" style="margin-left: 101px; margin-top:200px"><div class="let">B</div></div>
+                <div id="letters" class="u1" style="margin-left: 154px; margin-top: 200px;"><div class="let">U</div></div>
+                <div id="letters" class="r2" style="margin-left: 205px; margin-top: 200px;" ><div class="let">R</div></div>
+                <div id="letters" class="r3" style="margin-left: 154px; margin-top: 150px;"><div class="let">R</div></div>
+                <div id="letters" class="o2" style="margin-left: 154px; margin-top: 100px;"><div class="let">O</div></div>
+                <div id="letters" class="b3" style="margin-left: 154px; margin-top: 50px;"><div class="let">B</div></div>
+                <div id="letters" class="b4" style="margin-left: 102px; margin-top: 100px;"><div class="let">B</div></div>
+                <div id="letters" class="d1" style="margin-left: 205px; margin-top: 100px;"><div class="let">D</div></div>
+                <div id="letters" class="u2" style="margin-left: 255px; margin-top: 100px;"><div class="let">U</div></div>
+                <div id="letters" class="r4" style="margin-left: 305px; margin-top: 100px;"><div class="let">R</div></div>
+                <div id="letters" class="o3" style="margin-left: 305px; margin-top: 50px;"><div class="let">O</div></div>
+                <div id="letters" class="d2" style="margin-left: 305px; margin-top: 150px;"><div class="let">D</div></div>
+                <div id="letters" class="u3" style="margin-left: 305px; margin-top: 200px;"><div class="let">U</div></div>
+                
+        </div>
+       
+        <div id="circle" class="hey" style="margin-top: 450px;"> <!--Widget part positioning--> 
+            <div class="innerC" id="u"  style="margin-top: 25px; margin-left:120px;" value="1">U</div>
+            <div class="innerC" id="r" style="margin-top: 104px; margin-left:25px;" value="2">R</div>
+            <div class="innerC" id="o" style="margin-top: 204px; margin-left:64px;" value="3">O</div>
+            <div class="innerC" id="b" style="margin-top: 104px; margin-left:215px;" value="4">B</div>
+            <div class="innerC" id="d" style="margin-top: 204px; margin-left:180px;"value="5">D</div>
+            <div class="shuffle" id="shuff" style="margin-top:125px; margin-left: 135px;" ><img src="./shuffle (1).png" ></div>
+            <div class="clue" style="margin-top: -160px; margin-left: 265px;"><img onmouseover="bigImg(this)" onmouseout="normalImg(this)" src="./private-investigator (1).png" ></div>
+            <div class="letterContainer" id="display" style="margin-top: -50px;" ></div>
+        </div>
+    </div>
+</body>
+</html>
